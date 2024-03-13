@@ -9,9 +9,9 @@ import { Link } from "react-router-dom";
 // const history = createBrowserHistory();
 
 function Login() {
-  const [email, Setemail] = useState("demo@demo.com");
-  const [pass, Setpass] = useState("demo");
-  const [User, Setuser] = useState("");
+  const [email, Setemail] = useState("");
+  const [pass, Setpass] = useState("");
+  const [User, Setuser] = useState();
   const [Redirect, setRedirect] = useState(Boolean);
   const navigate = useNavigate();
   const locations = useLocation();
@@ -79,7 +79,6 @@ function Login() {
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
-            value={email && email}
             onChange={(e) => {
               Setemail(e.target.value);
             }}
@@ -97,7 +96,6 @@ function Login() {
             type="password"
             className="form-control"
             id="exampleInputPassword1"
-            value={pass && pass}
             onChange={(e) => {
               Setpass(e.target.value);
             }}

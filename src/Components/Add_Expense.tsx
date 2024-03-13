@@ -1,7 +1,5 @@
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { DatePickerDemo } from "./Shadui/ui/datepicker";
-import { formatDate } from "date-fns";
 
 function Add_Expense() {
   const [Amount, SetAmount] = useState<string>("");
@@ -47,17 +45,6 @@ function Add_Expense() {
         // handle error
         console.log(error);
       });
-  }
-  // console.log(date);
-  //update date
-  function updatedate(data: SetStateAction<string>) {
-    if (data != undefined) {
-      const dateString = data.toString();
-      const formattedDate = formatDate(new Date(dateString), "yyyy-MM-dd");
-      // console.log(formattedDate); // Output: 2024-03-26
-      Setdate(formattedDate);
-      // console.log(data);
-    }
   }
 
   return (
@@ -109,7 +96,7 @@ function Add_Expense() {
           </select>
         </div>
         <div className="mb-3">
-          {/* <input
+          <input
             name="user"
             type="date"
             className="form-control"
@@ -118,8 +105,7 @@ function Add_Expense() {
             onChange={(e) => {
               Setdate(e.target.value);
             }}
-          /> */}
-          <DatePickerDemo updatedate={updatedate} />
+          />
         </div>
 
         <button type="submit" className="btn btn-primary" onClick={Senddata}>
